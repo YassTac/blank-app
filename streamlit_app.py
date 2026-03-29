@@ -5,11 +5,115 @@ import numpy as np
 import altair as alt
 import csv
 
-with open("ticker_biotech.csv", mode="r") as csv_file:
-    csv_reader = reader(csv_file)
-    BIOTECH = list(csv_reader)
+#with open("ticker_biotech.csv", mode="r") as csv_file:
+ #   csv_reader = reader(csv_file)
+  #  BIOTECH = list(csv_reader)
     
-DEFAULT_BIOTECH = ["ABBV","BMS","PFE"]
+#DEFAULT_BIOTECH = ["ABBV","BMS","PFE"]
+
+
+cols = st.columns([1, 3])
+# Will declare right cell later to avoid showing it when no data.
+
+STOCKS = [
+    "AAPL",
+    "ABBV",
+    "ACN",
+    "ADBE",
+    "ADP",
+    "AMD",
+    "AMGN",
+    "AMT",
+    "AMZN",
+    "APD",
+    "AVGO",
+    "AXP",
+    "BA",
+    "BK",
+    "BKNG",
+    "BMY",
+    "BRK.B",
+    "BSX",
+    "C",
+    "CAT",
+    "CI",
+    "CL",
+    "CMCSA",
+    "COST",
+    "CRM",
+    "CSCO",
+    "CVX",
+    "DE",
+    "DHR",
+    "DIS",
+    "DUK",
+    "ELV",
+    "EOG",
+    "EQR",
+    "FDX",
+    "GD",
+    "GE",
+    "GILD",
+    "GOOG",
+    "GOOGL",
+    "HD",
+    "HON",
+    "HUM",
+    "IBM",
+    "ICE",
+    "INTC",
+    "ISRG",
+    "JNJ",
+    "JPM",
+    "KO",
+    "LIN",
+    "LLY",
+    "LMT",
+    "LOW",
+    "MA",
+    "MCD",
+    "MDLZ",
+    "META",
+    "MMC",
+    "MO",
+    "MRK",
+    "MSFT",
+    "NEE",
+    "NFLX",
+    "NKE",
+    "NOW",
+    "NVDA",
+    "ORCL",
+    "PEP",
+    "PFE",
+    "PG",
+    "PLD",
+    "PM",
+    "PSA",
+    "REGN",
+    "RTX",
+    "SBUX",
+    "SCHW",
+    "SLB",
+    "SO",
+    "SPGI",
+    "T",
+    "TJX",
+    "TMO",
+    "TSLA",
+    "TXN",
+    "UNH",
+    "UNP",
+    "UPS",
+    "V",
+    "VZ",
+    "WFC",
+    "WM",
+    "WMT",
+    "XOM",
+]
+
+DEFAULT_STOCKS = ["AAPL", "MSFT", "GOOGL", "NVDA", "AMZN", "TSLA", "META"]
 
 
 def stocks_to_str(stocks):
@@ -18,7 +122,7 @@ def stocks_to_str(stocks):
 
 if "tickers_input" not in st.session_state:
     st.session_state.tickers_input = st.query_params.get(
-        "stocks", stocks_to_str(DEFAULT_BIOTECH)
+        "stocks", stocks_to_str(DEFAULT_STOCKS)
     ).split(",")
 
 
