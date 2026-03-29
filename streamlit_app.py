@@ -19,10 +19,10 @@ STOCKS = [
     "ABBV",
     "ACN",
     "PFE",
-    "BMS"
+    "BMY"
 ]
 
-DEFAULT_STOCKS = ["PFE", "ABBV", "BMS"]
+DEFAULT_STOCKS = ["PFE", "ABBV", "BMY"]
 
 
 def stocks_to_str(stocks):
