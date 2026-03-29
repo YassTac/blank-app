@@ -53,7 +53,7 @@ with top_left_cell:
         "Stock tickers",
         options=sorted(set(STOCKS) | set(st.session_state.tickers_input)),
         default=st.session_state.tickers_input,
-        placeholder="Choose stocks to compare. Example: PFE",
+        placeholder="Choose stocks to compare",
         accept_new_options=True,
     )
 
