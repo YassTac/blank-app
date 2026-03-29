@@ -3,9 +3,12 @@ import yfinance as yf
 import pandas as pd
 import numpy as np
 import altair as alt
+import csv
 
-BIOTECH = pd.read_csv("ticker_biotech.csv")
-
+with open("ticker_biotech.csv", mode="r") as csv_file:
+    csv_reader = reader(csv_file)
+    BIOTECH = list(csv_reader)
+    
 DEFAULT_BIOTECH = ["ABBV","BMS","PFE"]
 
 
@@ -15,7 +18,7 @@ def stocks_to_str(stocks):
 
 if "tickers_input" not in st.session_state:
     st.session_state.tickers_input = st.query_params.get(
-        "stocks", stocks_to_str(DEFAULT_STOCKS)
+        "stocks", stocks_to_str(DEFAULT_BIOTECH)
     ).split(",")
 
 
@@ -37,7 +40,7 @@ with top_left_cell:
         "Stock tickers",
         options=sorted(set(STOCKS) | set(st.session_state.tickers_input)),
         default=st.session_state.tickers_input,
-        placeholder="Choose stocks to compare. Example: NVDA",
+        placeholder="Choose stocks to compare. Example: PFE",
         accept_new_options=True,
     )
 
