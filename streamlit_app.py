@@ -16,7 +16,6 @@ cols = st.columns([1, 3])
 # Will declare right cell later to avoid showing it when no data.
 
 STOCKS = [
-    "AAPL",
     "ABBV",
     "ACN",
     "PFE",
